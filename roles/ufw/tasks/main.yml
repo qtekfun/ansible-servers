@@ -1,9 +1,21 @@
 ---
-  - name: Allow everything and enable UFW
+  - name: enable UFW
     ufw:
       state: enabled
+
+  - name: configure default incoming policy
+    community.general.ufw:
+      policy: deny
+      direction: incoming
+    notify: reload ufw
+
+  - name: configure default outgoing policy
+    community.general.ufw:
       policy: allow
+      direction: outgoing
+    notify: reload ufw
 
   - name: Set logging
     community.general.ufw:
       logging: 'on'
+    notify: reload ufw
