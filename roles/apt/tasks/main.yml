@@ -1,7 +1,4 @@
 ---
-- hosts: all
-  become: true
-  tasks:
   - name: Update and upgrade apt packages
     ansible.builtin.apt:
       upgrade: yes

@@ -1,0 +1,16 @@
+---
+- hosts: all
+  become: true
+  roles:
+  - role: apt
+
+  tasks:
+
+  - name: Allow everything and enable UFW
+    ufw:
+      state: enabled
+      policy: allow
+
+  - name: Set logging
+    community.general.ufw:
+      logging: 'on'
