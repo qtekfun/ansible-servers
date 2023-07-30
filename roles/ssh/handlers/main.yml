@@ -1,0 +1,20 @@
+---
+- name: Restart sshd
+  service:
+    name: sshd
+    state: restarted
+  notify: "Allow new ssh port in UFW"
+
+- name: Allow new ssh port in UFW
+  community.general.ufw:
+    rule: allow
+    port: "{{ ssh_port }}"
+  notify: "Delete SSH rule"
+
+- name: Delete SSH rule
+  community.general.ufw:
+    rule: allow
+    direction: in
+    port: '22'
+    proto: tcp
+    delete: true

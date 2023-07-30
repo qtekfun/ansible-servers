@@ -27,4 +27,4 @@ This is my playbook to configure the basic stuff in my servers
     }  
     ```
 ### Run the playbook
-`ansible-playbook -i <inventory> -u <user> -K main.yaml`
+`ansible-playbook -i <inventory> -u <user> -K  --extra-vars "ssh_port=<port>" main.yaml`

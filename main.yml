@@ -4,4 +4,4 @@
   roles:
   - role: apt
   - role: ufw
-  
+  - role: ssh
