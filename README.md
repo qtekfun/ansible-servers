@@ -26,3 +26,5 @@ This is my playbook to configure the basic stuff in my servers
         "ping": "pong"
     }  
     ```
+### Run the playbook
+`ansible-playbook -i <inventory> -u <user> -K main.yaml`
