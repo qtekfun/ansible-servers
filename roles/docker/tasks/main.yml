@@ -1,0 +1,21 @@
+---
+
+  - name: Add Docker GPG apt Key
+    apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+      state: present
+
+  - name: Add Docker Repository
+    apt_repository:
+      repo: deb https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable
+      state: present
+      filename: docker.list
+
+  - name: Update repositories cache
+    ansible.builtin.apt:
+      update_cache: yes
+  
+  - name: install docker
+    apt:
+      name: "{{ docker_default_apps }}"
+      state: latest
