@@ -1,0 +1,14 @@
+---
+apt_default_apps:
+  - neovim
+  - terminator
+  - git
+  - python3-pip
+  - build-essential
+  - dkms
+  - unzip
+  - net-tools
+  - ca-certificates
+  - curl
+  - gnupg
+  - lsb-release

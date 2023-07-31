@@ -5,6 +5,11 @@
       update_cache: yes
       cache_valid_time: 86400
 
+  - name: Update all packages to their latest version
+    ansible.builtin.apt:
+      name: "*"
+      state: latest
+
   - name: Remove useless packages from the cache
     ansible.builtin.apt:
       autoclean: yes
@@ -20,4 +25,9 @@
   - name: Enable unattended-upgrades
     apt:
       name: "unattended-upgrades"
+      state: latest
+
+  - name: install apt useful packages
+    apt:
+      name: "{{ apt_default_apps }}"
       state: latest
