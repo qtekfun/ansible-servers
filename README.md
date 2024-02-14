@@ -4,7 +4,13 @@ This is my playbook to configure the basic stuff in my servers
 ## Instructions
 ### Prerequisites and basic test
 1. Configure ssh-key access to the servers
-1. Add ssh identyties to your ssh-agent
+1. Add ssh identyties to your ssh-agent. To do that:
+    * Execute `eval "$(ssh-agent -s)"`. It should be like:
+      ``` bash
+      $ eval "$(ssh-agent -s)"
+      > Agent pid XXXXX
+      ```
+    * And then run `ssh-add ~/.ssh/i<key name>`
 1. [Install ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 1. Create yout hosts inventory, or global one in `/etc/ansible/hosts` or a local one. As an example:
     ```
